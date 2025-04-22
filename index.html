@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Retinopathy Detection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-eye"></i>
+                <h1>RetinaScan</h1>
+            </div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#upload">Detect DR</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Diabetic Retinopathy Detection</h1>
+                <p>Early detection can prevent vision loss. Upload your retinal image for instant screening.</p>
+                <a href="#upload" class="btn">Get Started</a>
+            </div>
+            <div class="hero-image">
+                <img src="retina2.png   " alt="Retina scan illustration">
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Diabetic Retinopathy</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="BDP-Diabetic-Retinopathy.png" alt="Eye diagram">
+                </div>
+                <div class="about-text">
+                    <p>Diabetic retinopathy is a diabetes complication that affects the eyes. It's caused by damage to the blood vessels in the retina (the light-sensitive tissue at the back of the eye).</p>
+                    <p>At first, diabetic retinopathy may cause no symptoms or only mild vision problems. Eventually, it can cause blindness.</p>
+                    <h3>Stages of Diabetic Retinopathy:</h3>
+                    <ul>
+                        <li><strong>No Diabetic Retinopathy</strong> - No abnormalities detected</li>
+                        <li><strong>Mild Non-Proliferative DR</strong> - Small areas of balloon-like swelling in the retina's tiny blood vessels</li>
+                        <li><strong>Moderate Non-Proliferative DR</strong> - More blockages in blood vessels of the retina</li>
+                        <li><strong>Severe Non-Proliferative DR</strong> - Many more blood vessels are blocked, depriving areas of the retina of blood supply</li>
+                        <li><strong>Proliferative DR</strong> - Most advanced stage, new abnormal blood vessels grow in the retina</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="upload" class="upload">
+            <h2>Detect Diabetic Retinopathy</h2>
+            <div class="upload-container">
+                <div class="upload-area" id="drop-area">
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <p>Drag & drop your retina image here</p>
+                    <span>OR</span>
+                    <button class="browse-btn">Browse Files</button>
+                    <p class="file-info">Supported formats: JPG, PNG, JPEG</p>
+                </div>
+                <div class="preview-container" id="preview-container">
+                    <h3>Image Preview</h3>
+                    <div class="image-preview">
+                        <img id="preview-image" src="" alt="Preview">
+                    </div>
+                    <div class="analyze-container">
+                        <button id="analyze-btn" class="analyze-btn" disabled>Analyze Image</button>
+                        <div class="loader" id="loader"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="results" class="results hidden">
+                <h2>Analysis Results</h2>
+                <div class="result-container">
+                    <div class="result-image">
+                        <img id="result-image" src="" alt="Analyzed image">
+                    </div>
+                    <div class="result-details">
+                        <div class="diagnosis">
+                            <h3>Diagnosis:</h3>
+                            <p id="diagnosis-text" class="diagnosis-value"></p>
+                        </div>
+                        <div class="confidence">
+                            <h3>Confidence:</h3>
+                            <div class="progress-bar">
+                                <div id="confidence-level" class="progress-value"></div>
+                            </div>
+                            <p id="confidence-text">0%</p>
+                        </div>
+                        <div class="recommendation">
+                            <h3>Recommendation:</h3>
+                            <p id="recommendation-text"></p>
+                        </div>
+                        <button id="new-scan-btn" class="btn">Upload New Image</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Sharda University<br>Knowledge Park 3</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>2023248559.shivani@ug.sharda.ac.in</p>
+                    </div>
+                    <!-- <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p></p>
+                    </div> -->
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-eye"></i>
+                <h2>RetinaScan</h2>
+                <p>Advanced Diabetic Retinopathy Detection</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About DR</a></li>
+                    <li><a href="#upload">Detect DR</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest in eye care technology</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button>Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 RetinaScan. All rights reserved.</p>
+            <p>Disclaimer: This tool is for educational purposes only and should not replace professional medical advice.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
